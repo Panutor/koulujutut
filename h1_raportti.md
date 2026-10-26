@@ -1,6 +1,6 @@
 # Hei Ansiblen maailma
 
-Päivämäärä: 26.10.2026 
+Päivämäärä: 26.10.2026 Panu Torstila
 
 ## Johdanto
 
@@ -139,7 +139,5 @@ Karvinen, Tero. 2026. SSH public key - Login without password. https://terokarvi
 
 Karvinen, Tero. 2026. Hello Ansible. https://terokarvinen.com/hello-ansible/
 
-
-
-
+Tekoälyä käytin markdownin opetteluun: Miten otsikko ja toissijainen otsikko tehdään, miten komento boxit tehdään.
 
