@@ -2,6 +2,25 @@
 
 Päivämäärä: 26.10.2026 Panu Torstila
 
+## Tiivistelmä
+
+SSH Public key- Login without password
+
+- SSH mahdollistaa turvallisen etäyhteyden palvelimelle.
+- SSh avain pareilla voi kirjautua ilman, että antaa salasanaa.
+- `ssh-keygen` Luo avainparin ja `ssh-copy-id` kopioi julkisen avaimen kohdekoneelle.
+- `ssh localhost` komennolla voidaan sitten testata kirjautuminen.
+
+Oma havainto: SSh avainparilla kirjautuminen on todella aikaa säästävää ja käytännöllistä erityisesti ansiblen kanssa koska silloin automaatiot ei vaadi jatkuvaa salasanan syöttämistä.
+
+Hello ansible
+
+- Ansible on työkalu jolla voidaan automatisoida palveliten asetuksia ja hallintaa.
+- Ansible käyttää SSH yhteyttä.
+- `hosts.ini` määrittää hallittavat koneet, eli sinne listataan kaikki koneet joille muutokset halutaan ajaa. `site.yml` määrittää suoritettavat roolit.
+- `ansible-playbook` suorittaa kaikki ansiblelle annetut tehtävät.
+- Ansible tekee vain muutoksia jos seon tarpeellista, eli jos jokin tehtävä on jo ajettu kohdekoneelle niin sille ei tehdä muutoksia.
+
 ## Johdanto
 
 Tässä harjoituksessa tutustuin SSH yhteyden käyttöön ja ansiblen avulla tehtävään automatisointiin. Tavoitteena oli saada SSH yhteys toimimaan paikallisesti sekä kokeilla ansiblen käyttöä Hello world tehtävän avulla.
