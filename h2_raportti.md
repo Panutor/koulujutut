@@ -183,8 +183,6 @@ Tehtävässä opin käyttämään ansiblea käytännön tasolla enemmän ja nyt 
 
 ## Lähteet:
 
-## Lähteet
-
 Karvinen, Tero. 2026. Sudo without password. https://terokarvinen.com/passwordless-sudo/
 
 Karvinen, Tero. 2026. Passwordless Sudo with Ansible. https://terokarvinen.com/passwordless-sudo-with-ansible/
