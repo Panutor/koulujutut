@@ -88,3 +88,121 @@ Tarkistin tämän onnistuneen github verkko reposta.
 <img width="1512" height="982" alt="Screenshot 2026-11-24 at 18 57 32" src="https://github.com/user-attachments/assets/03d4c3ae-fbaf-43e0-94ba-8c03d335fc9c" />
 
 Tästä nähdään että tehty tiedoston on päivittynyt etävarastoon onnistuneesti. 
+
+## c) Doh!
+
+Seuraavaksi tahallaan poistin kaiken `test.md` sisällön ja halusin sitten peruuttaa tämän toiminnon.
+
+```
+micro test.md
+```
+
+<img width="1512" height="982" alt="Screenshot 2026-11-24 at 18 59 41" src="https://github.com/user-attachments/assets/9705fcef-0e51-4bc8-99a7-04a95b19ef19" />
+
+Tästä näkee että muutokset oli tehty staging alueelle.
+
+Sitten halusinkin peruuttaa poistamisen, tein sen komennolla:
+
+```
+git reset --hard
+```
+
+Tarkistin sitten git statuksen `git status`
+
+Se oli "clean".
+
+Tarkistin sitten vielä itse `test.md` sisällön komennolla:
+
+```
+cat test.md
+```
+
+<img width="1512" height="982" alt="Screenshot 2026-11-24 at 19 00 18" src="https://github.com/user-attachments/assets/f10a809d-8b5b-4223-be1a-dd96bfa8b9b3" />
+
+Sisältö palautui ennalleen.
+
+## d) Tukki
+
+Sitten tarkasteltiin versionhallinan lokeja komennolla:
+
+```
+git log --patch
+```
+
+<img width="1512" height="982" alt="Screenshot 2026-11-24 at 19 27 06" src="https://github.com/user-attachments/assets/d7fd6450-4b37-4d0c-8d0e-7589fcdb4646" />
+
+Lokeista näki:
+- commit eli muokkauksen yksilöllinen tunnus.
+- author eli muokkauksen tekijä ja sähköposti
+- date eli muokkauksen aikaleima
+- commit msg eli muokkaukselle annettu viesti
+- - tiedostosta poistetut rivit
+- + tiedostoon lisätyt rivit
+
+## e) Gitanbile
+
+Seuraavaksi laitoin aikaisemmin luodun ansible kansion gittiin.
+
+Siirryin ensimmäiseksi ansible hakemistoon `cd ansible/`
+
+Sitten alustin gitin komennolla:
+
+```
+git init
+```
+
+Tämä loi ansible hakemistoon .git kansion. Sitten tarkistin tämän komennolla `ls -la` ja näin siellä piilotetun .git hakemiston.
+
+Sitten lisäsin tiedostot versionhallintaan ja tein ensimmäisen commitin:
+
+```
+git add .
+git commit
+```
+
+<img width="1512" height="982" alt="Screenshot 2026-11-24 at 19 35 19" src="https://github.com/user-attachments/assets/f33f1442-04cb-418e-b00f-caf04b407a19" />
+
+Sitten muokkasin nginx verkkosivun index.html tiedostoa ja default sivua jotta handleri käynnistää uudelleen daemonin. 
+
+Tämän jälkeen ajoin:
+
+```
+ansible-playbook --ask-become site.yml
+```
+
+Jonka jälkeen tarkistin että nginx käynnistyi. 
+
+<img width="1512" height="982" alt="Screenshot 2026-11-24 at 20 03 37" src="https://github.com/user-attachments/assets/d18a9afe-6f94-4949-acbe-10214ebd39bc" />
+
+Tässä kuva `systemctl status nginx.server` ja taustalla näkyy vanha index.html localhost sivu.
+
+Alla kuva sitten kun päivitin selaimen uudestaan
+
+<img width="1512" height="982" alt="Screenshot 2026-11-24 at 20 03 50" src="https://github.com/user-attachments/assets/beb7f601-0048-4b91-b8ff-a8a41e0f8a1c" />
+
+Sitten tallensin tekemäni muutokset gittiin komennoilla:
+
+´´´
+git add .
+
+git commit
+´´´
+
+Sitten tarkistin lokit komennolla:
+
+```
+git log
+```
+
+<img width="1512" height="982" alt="Screenshot 2026-11-24 at 20 05 02" src="https://github.com/user-attachments/assets/fb8bd2df-12d9-4886-ab0b-0c6cc54dcd5b" />
+
+Tämän jälkeen tarkisin taas `git status` ja se kertoi ettei mitään tallentamattomia muokkauksia ollut. Eli kaikki OK!
+
+## Yhteenveto
+
+Tässä tehtävässä opin käyttämään gittiä paikallisesti ja suoraa komentokehotteesta, aikaisemmin olen vain käyttänyt graafista käyttöliittymää. Ja pakko se on todeta että tämä on kyllä paljon kätevämpää...
+
+
+## Lähteet:
+
+T. Karvinen. 2026. https://terokarvinen.com/palvelinten-hallinta/ Luettu: 24.11.2026
