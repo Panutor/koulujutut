@@ -91,10 +91,10 @@ Tästä nähdään että tehty tiedoston on päivittynyt etävarastoon onnistune
 
 ## c) Doh!
 
-Seuraavaksi tahallaan poistin kaiken `test.md` sisällön ja halusin sitten peruuttaa tämän toiminnon.
+Seuraavaksi tahallaan poistin kaiken `testi.md` sisällön ja halusin sitten peruuttaa tämän toiminnon.
 
 ```
-micro test.md
+micro testi.md
 ```
 
 <img width="1512" height="982" alt="Screenshot 2026-11-24 at 18 59 41" src="https://github.com/user-attachments/assets/9705fcef-0e51-4bc8-99a7-04a95b19ef19" />
@@ -111,10 +111,10 @@ Tarkistin sitten git statuksen `git status`
 
 Se oli "clean".
 
-Tarkistin sitten vielä itse `test.md` sisällön komennolla:
+Tarkistin sitten vielä itse `testi.md` sisällön komennolla:
 
 ```
-cat test.md
+cat testi.md
 ```
 
 <img width="1512" height="982" alt="Screenshot 2026-11-24 at 19 00 18" src="https://github.com/user-attachments/assets/f10a809d-8b5b-4223-be1a-dd96bfa8b9b3" />
